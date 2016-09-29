@@ -43,7 +43,7 @@ public class RestEntryPointAsync {
 
     private static final java.util.logging.Logger LOG = java.util.logging.Logger.getLogger(RestEntryPointAsync.class.getName());
 
-    @RequestMapping(value = "/post_urls/", method = RequestMethod.POST, consumes = "application/json")
+    @RequestMapping(value = "/post_urls_async/", method = RequestMethod.POST, consumes = "application/json")
     public DeferredResult<ResponseEntity<?>> handlePost(HttpServletRequest request,
             HttpServletResponse response) throws IOException {
 

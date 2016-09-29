@@ -16,9 +16,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import static org.eclipse.persistence.expressions.ExpressionOperator.NotNull;
 
 /**
  *
@@ -27,7 +26,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "websites")
 @XmlRootElement
-public class Website implements Serializable, Cloneable{
+public class Website implements Serializable, Cloneable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,23 +35,23 @@ public class Website implements Serializable, Cloneable{
     private long id;
 
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 100)
+
     @Column(name = "url")
     private String url;
 
-    @Size(max = 10)
+    @Basic(optional = true)
     @Column(name = "rank")
     private String rank;
 
-    @Size(max = 10)
+    @Basic(optional = true)
     @Column(name = "qualify")
     private String qualify;
 
-    @Size(max = 50)
+    @Basic(optional = true)
     @Column(name = "error")
     private String error;
-    
+
+    @Basic(optional = true)
     @Column(name = "creationtime")
     @Temporal(TemporalType.TIMESTAMP)
     private Date creationtime;
@@ -103,7 +102,7 @@ public class Website implements Serializable, Cloneable{
     public void setError(String error) {
         this.error = error;
     }
-    
+
     public void emptyError() {
         this.error = null;
     }
@@ -115,14 +114,11 @@ public class Website implements Serializable, Cloneable{
     public void setCreationtime(Date creationtime) {
         this.creationtime = creationtime;
     }
-    
-    
 
     public static enum Qualification {
 
         YES, NO;
 
-       
     }
 
 }

@@ -32,8 +32,12 @@ public class MarfeelSiteChecker implements Callable<Website> {
         this.qualificatorImplementation = qualificatorImplementation;
     }
 
-    //This method represents a single thread lifecycle:
-    //1.attack the URL via HTTP, 2.qualify the content and 3.persists
+    
+    /**
+     * This method represents a single thread lifecycle:
+     * 1.attack the URL via HTTP, 2.qualify the content and 3.persists
+     * @return 
+     */
     @Override
     public Website call()  {
         Document site = accesSite();
@@ -54,6 +58,7 @@ public class MarfeelSiteChecker implements Callable<Website> {
         return website;
     }
 
+    
     private Document accesSite() {
         Document site = doGet(HTTP);
         if (site == null) {
@@ -62,6 +67,7 @@ public class MarfeelSiteChecker implements Callable<Website> {
         return site;
     }
 
+    
     private Document doGet(String http) {
         try {
             return Jsoup.connect(http + website.getUrl()).get();

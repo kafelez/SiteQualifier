@@ -39,6 +39,14 @@ public class RestEntryPoint {
 
     private static final java.util.logging.Logger LOG = java.util.logging.Logger.getLogger(RestEntryPoint.class.getName());
 
+    /**
+     * This is the entry point of the project
+     * http://<host>/marfeel_site_qualifier/post_urls
+     * @param request
+     * @param response
+     * @return
+     * @throws IOException 
+     */
     @RequestMapping(value = "/post_urls", method = RequestMethod.POST, consumes = "application/json")
     public ResponseEntity<Void> handlePost(HttpServletRequest request,
             HttpServletResponse response) throws IOException {

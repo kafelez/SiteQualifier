@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package cat.marfeel.qualify.qualifier;
 
 import java.util.ArrayList;
@@ -11,6 +7,12 @@ import java.util.List;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+/**
+ * This is the abstract Qualifier class.
+ * Descendants should implement defineMe(). Instantiation behaviour.
+ * check() is a final method
+ * @author Carlos Velez
+ */
 abstract public class QualifierFacade
 {
     
